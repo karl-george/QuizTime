@@ -1,0 +1,32 @@
+.splash-title {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.7rem;
+  color: #293264;
+
+}
+
+.splash-info {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  color: #293264;
+}
+
+.splash-btn {
+  background-color: #4D5B9E;
+  color: white;
+  border-radius: 1.5rem;
+  width: 19rem;
+  height: 5rem;
+  font-family: 'Inter', sans-serif;
+  border: 0;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.splash-btn:hover {
+  background-color: #6172c7;
+
+}
