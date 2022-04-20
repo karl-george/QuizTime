@@ -1,32 +1,50 @@
 import { useState, useEffect } from 'react';
+import Question from './Question';
 import '../styles/Quiz.css';
 
 const Quiz = ({ quizContent }) => {
-  console.log(quizContent);
+  const [userAnswers, setUserAnswers] = useState({
+    0: '',
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+  });
+
+  const handleChange = (event) => {
+    const { name, value, checked } = event.target;
+
+    setUserAnswers((prevAnswers) => {
+      return {
+        ...prevAnswers,
+        [name]: value,
+      };
+    });
+  };
+
+  const quizElement = quizContent.map((question_answer, index) => {
+    return (
+      <Question
+        data={question_answer}
+        key={index}
+        index={index}
+        handleChange={handleChange}
+      />
+    );
+  });
+
+  const checkAnswers = () => {
+    if (userAnswers[0] === quizContent[0].correct_answer) {
+      console.log('BOOM');
+    }
+  };
 
   return (
     <div>
-      <h2 className='question'>{quizContent[0].question}</h2>
-      <ul className='answers'>
-        <li>
-          <input type='radio' name='answer' id='answer1' />
-          <label htmlFor='answer1'>{quizContent[0].correct_answer}</label>
-        </li>
-        <li>
-          <input type='radio' name='answer' id='answer2' />
-          <label htmlFor='answer2'>{quizContent[0].incorrect_answers[0]}</label>
-        </li>
-        <li>
-          <input type='radio' name='answer' id='answer3' />
-          <label htmlFor='answer3'>{quizContent[0].incorrect_answers[1]}</label>
-        </li>
-        <li>
-          <input type='radio' name='answer' id='answer4' />
-          <label htmlFor='answer4'>{quizContent[0].incorrect_answers[2]}</label>
-        </li>
-      </ul>
-
-      <button className='btn btn-filled'>Check Answers</button>
+      {quizElement}
+      <button className='btn btn-filled' onClick={checkAnswers}>
+        Check Answers
+      </button>
     </div>
   );
 };
