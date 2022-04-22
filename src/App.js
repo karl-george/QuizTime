@@ -52,6 +52,7 @@ function App() {
         key={index}
         index={index}
         handleChange={handleChange}
+        submitted={tallyPoints.submitted}
       />
     );
   });
@@ -90,6 +91,10 @@ function App() {
           submitted: false,
         };
       });
+
+      document
+        .querySelectorAll('input[type=radio]')
+        .forEach((el) => (el.checked = false));
     }
   };
 

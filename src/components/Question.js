@@ -1,10 +1,12 @@
-const Question = ({ data, index, handleChange }) => {
+const Question = ({ data, index, handleChange, submitted }) => {
   const answers = [];
   answers.push(data.correct_answer);
   data.incorrect_answers.forEach((ans) => {
     answers.push(ans);
   });
   answers.sort();
+
+  console.log(submitted);
 
   return (
     <div>
@@ -18,7 +20,18 @@ const Question = ({ data, index, handleChange }) => {
             onChange={handleChange}
             value={answers[0]}
           />
-          <label htmlFor={answers[0]}>{answers[0]}</label>
+          <label
+            htmlFor={answers[0]}
+            className={
+              submitted
+                ? answers[0] === data.correct_answer
+                  ? 'correct'
+                  : 'wrong'
+                : ''
+            }
+          >
+            {answers[0]}
+          </label>
         </li>
         <li>
           <input
@@ -28,7 +41,18 @@ const Question = ({ data, index, handleChange }) => {
             onChange={handleChange}
             value={answers[1]}
           />
-          <label htmlFor={answers[1]}>{answers[1]}</label>
+          <label
+            htmlFor={answers[1]}
+            className={
+              submitted
+                ? answers[1] === data.correct_answer
+                  ? 'correct'
+                  : 'wrong'
+                : ''
+            }
+          >
+            {answers[1]}
+          </label>
         </li>
         <li>
           <input
@@ -38,7 +62,18 @@ const Question = ({ data, index, handleChange }) => {
             onChange={handleChange}
             value={answers[2]}
           />
-          <label htmlFor={answers[2]}>{answers[2]}</label>
+          <label
+            htmlFor={answers[2]}
+            className={
+              submitted
+                ? answers[2] === data.correct_answer
+                  ? 'correct'
+                  : 'wrong'
+                : ''
+            }
+          >
+            {answers[2]}
+          </label>
         </li>
         <li>
           <input
@@ -48,7 +83,18 @@ const Question = ({ data, index, handleChange }) => {
             onChange={handleChange}
             value={answers[3]}
           />
-          <label htmlFor={answers[3]}>{answers[3]}</label>
+          <label
+            htmlFor={answers[3]}
+            className={
+              submitted
+                ? answers[3] === data.correct_answer
+                  ? 'correct'
+                  : 'wrong'
+                : ''
+            }
+          >
+            {answers[3]}
+          </label>
         </li>
       </ul>
       <hr />

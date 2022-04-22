@@ -68,3 +68,12 @@
   border-radius: 1rem;
   margin-top: 1rem;
 }
+
+.answers .correct {
+  background-color: #94D7A2 !important;
+}
+
+.answers .wrong {
+  background-color: #F8BCBC !important;
+  opacity: 0.7;
+}
