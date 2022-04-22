@@ -6,8 +6,6 @@ const Question = ({ data, index, handleChange, submitted }) => {
   });
   answers.sort();
 
-  console.log(submitted);
-
   return (
     <div>
       <h2 className='question'>{data.question}</h2>
